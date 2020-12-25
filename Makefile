@@ -44,6 +44,9 @@ define Package/$(PKG_NAME)/install
   
   $(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_CONF) ./root/etc/uci-defaults/* $(1)/etc/uci-defaults
+	
+	$(INSTALL_DIR) $(1)/etc/kodexplorer
+	$(INSTALL_CONF) ./root/etc/kodexplorer/* $(1)/etc/init.d/kodexplorer
   
   $(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
 	cp -pR ./root/usr/share/rpcd/acl.d/* $(1)/usr/share/rpcd/acl.d
