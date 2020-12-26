@@ -17,7 +17,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
 	CATEGORY:=LuCI
-    SUBMENU:=3. Applications
+	SUBMENU:=3. Applications
 	TITLE:=LuCI Support for kodexplorer
 	PKGARCH:=all
 endef
@@ -36,25 +36,25 @@ define Package/$(PKG_NAME)/conffiles
 endef
 
 define Package/$(PKG_NAME)/install
-    $(INSTALL_DIR) $(1)/etc/config
+	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_CONF) ./root/etc/config/kodexplorer $(1)/etc/config/kodexplorer
 	
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./root/etc/init.d/kodexplorer $(1)/etc/init.d/kodexplorer
   
-  $(INSTALL_DIR) $(1)/etc/uci-defaults
+	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_CONF) ./root/etc/uci-defaults/* $(1)/etc/uci-defaults
 	
 	$(INSTALL_DIR) $(1)/etc/kodexplorer
 	$(INSTALL_CONF) ./root/etc/kodexplorer/* $(1)/etc/init.d/kodexplorer
   
-  $(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
+	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
 	cp -pR ./root/usr/share/rpcd/acl.d/* $(1)/usr/share/rpcd/acl.d
 	
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci
 	cp -pR ./luasrc/* $(1)/usr/lib/lua/luci/
   
-  $(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
+	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
 	po2lmo ./po/zh-cn/kodexplorer.po $(1)/usr/lib/lua/luci/i18n/kodexplorer.zh-cn.lmo
   
 endef
