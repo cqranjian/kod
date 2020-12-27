@@ -16,7 +16,6 @@ PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
-        SECTION:=luci
 	CATEGORY:=LuCI
 	SUBMENU:=3. Applications
 	TITLE:=LuCI Support for kodexplorer
@@ -47,7 +46,7 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_CONF) ./root/etc/uci-defaults/* $(1)/etc/uci-defaults
 	
 	$(INSTALL_DIR) $(1)/etc/kodexplorer
-	$(INSTALL_CONF) ./root/etc/kodexplorer/* $(1)/etc/init.d/kodexplorer
+	$(INSTALL_CONF) ./root/etc/kodexplorer/* $(1)/etc/kodexplorer
   
 	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
 	cp -pR ./root/usr/share/rpcd/acl.d/* $(1)/usr/share/rpcd/acl.d
