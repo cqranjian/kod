@@ -63,7 +63,7 @@ endef
 
 define Package/$(PKG_NAME)/postinst
 #!/bin/sh
-chmod a+x $${IPKG_INSTROOT}/usr/share/rpcd/* >/dev/null 2>&1
+chmod a+x $${IPKG_INSTROOT}/usr/share/rpcd/acl.d/* >/dev/null 2>&1
 chmod a+x $${IPKG_INSTROOT}/etc/init.d/kodexplorer >/dev/null 2>&1
 exit 0
 endef
